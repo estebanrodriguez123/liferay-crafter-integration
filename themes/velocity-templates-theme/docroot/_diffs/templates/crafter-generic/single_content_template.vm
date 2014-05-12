@@ -15,11 +15,11 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *#
 
-#set ($crafterService = $utilLocator.findUtil('crafter-integration-portlet','com.rivet.crafter.service.CrafterLocalService'))
+#set ($crafterService = $utilLocator.findUtil('crafter-integration-portlet','com.rivetlogic.crafter.service.CrafterLocalService'))
 #set ($qValue = "crafterSite:$crafter-site.getData() AND localId:$local-id.getData()")
 #set ($query_parameters = {"q": $qValue})
 #set ($documentsMap = $crafterService.searchByMap($query_parameters))
-#if ($documentMap.size() > 0)
+#if ($documentsMap.size() > 0)
 	#set ($content = $documentsMap.get(0))
 	
 	#set ($css-path = '/velocity-templates-theme/css/')
