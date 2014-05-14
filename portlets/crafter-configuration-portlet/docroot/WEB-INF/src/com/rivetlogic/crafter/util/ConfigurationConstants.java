@@ -20,19 +20,26 @@ package com.rivetlogic.crafter.util;
 /**
  * The Class ConfigurationConstants.
  */
-public class ConfigurationConstants {
-	
-	//String constants used in Configuration portlet
-	/** The Constant PARAMUTIL_SEARCH_URL. */
-	public static final String PARAMUTIL_SEARCH_URL = "search_server_url";
-	
-	/** The Constant PREFENCES_SEARCH_URL. */
-	public static final String PREFENCES_SEARCH_URL = "search.server.url";
-	
-	/** The Constant CRAFTER_END_POINT. */
-	public static final String CRAFTER_END_POINT = "crafter.end.point";
-	
-	/** The Constant _EMPTY. */
-	public static final String _EMPTY = "empty";
+public final class ConfigurationConstants {
+
+    private ConfigurationConstants() {
+
+    }
+
+    // String constants used in Configuration portlet
+    /** The Constant _EMPTY. */
+    public static final String _EMPTY = "empty";
+
+    /** The Constant PARAMUTIL_SEARCH_URL. */
+    public static final String PARAMUTIL_SEARCH_URL = "search_server_url";
+
+    /** The Constant PREFENCES_SEARCH_URL. */
+    public static final String PREFERENCES_SEARCH_URL = "search.server.url";
+
+    /** The Constant PARAMUTIL_END_POINT. */
+    public static final String PARAMUTIL_END_POINT = "crafter_end_point";
+
+    /** The Constant CRAFTER_END_POINT. */
+    public static final String PREFERENCES_END_POINT = "crafter.end.point";
 
 }

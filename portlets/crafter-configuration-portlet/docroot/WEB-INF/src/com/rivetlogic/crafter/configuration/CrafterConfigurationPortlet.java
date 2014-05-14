@@ -36,58 +36,62 @@ import com.rivetlogic.crafter.util.ConfigurationConstants;
 
 /**
  * The Class CrafterConfigurationPortlet.
- *
+ * 
  * @author rkanakam
  */
 public class CrafterConfigurationPortlet extends MVCPortlet {
 
-	/** The log. */
-	private static Log LOG = LogFactoryUtil.getLog(CrafterConfigurationPortlet.class);
-	
-	/**
-	 * Submit preferences action.
-	 *
-	 * @param actionRequest the action request
-	 * @param actionResponse the action response
-	 * @throws IOException the IO exception
-	 * @throws PortletException the portlet exception
-	 */
-	public void submitPreferencesAction(ActionRequest actionRequest,
-			ActionResponse actionResponse) throws IOException, PortletException {
+    /** The log. */
+    private static final Log LOG = LogFactoryUtil.getLog(CrafterConfigurationPortlet.class);
 
-		String searchServerURL = ParamUtil.getString(actionRequest,
-				ConfigurationConstants.PARAMUTIL_SEARCH_URL);
-		String crafterEndPoint = ParamUtil.getString(actionRequest,
-				ConfigurationConstants.CRAFTER_END_POINT);
-		try {
-			if (Validator.isNotNull(searchServerURL)) {
-				PortletPreferences preferences = PrefsPropsUtil
-						.getPreferences();
-				preferences.setValue(ConfigurationConstants.PREFENCES_SEARCH_URL, searchServerURL);
-				preferences.setValue(ConfigurationConstants.CRAFTER_END_POINT, crafterEndPoint);
-				preferences.store();
-			}
-		} catch (SystemException e) {
-			LOG.error("Error while storing preferences:" +e.getMessage());
-		}
-	}
+    /**
+     * Submit preferences action.
+     * 
+     * @param actionRequest
+     *            the action request
+     * @param actionResponse
+     *            the action response
+     * @throws IOException
+     *             the IO exception
+     * @throws PortletException
+     *             the portlet exception
+     */
+    public void submitPreferencesAction(final ActionRequest actionRequest, final ActionResponse actionResponse)
+            throws IOException, PortletException {
 
-	/* (non-Javadoc)
-	 * @see com.liferay.util.bridges.mvc.MVCPortlet#doView(javax.portlet.RenderRequest, javax.portlet.RenderResponse)
-	 */
-	public void doView(RenderRequest request, RenderResponse response)
-			throws IOException, PortletException {
+        String searchServerURL = ParamUtil.getString(actionRequest, ConfigurationConstants.PARAMUTIL_SEARCH_URL);
+        String crafterEndPoint = ParamUtil.getString(actionRequest, ConfigurationConstants.PARAMUTIL_END_POINT);
+        try {
+            if (Validator.isNotNull(searchServerURL)) {
+                PortletPreferences preferences = PrefsPropsUtil.getPreferences();
+                preferences.setValue(ConfigurationConstants.PREFERENCES_SEARCH_URL, searchServerURL);
+                preferences.setValue(ConfigurationConstants.PREFERENCES_END_POINT, crafterEndPoint);
+                preferences.store();
+            }
+        } catch (SystemException e) {
+            LOG.error("Error while storing preferences:" + e.getMessage());
+        }
+    }
 
-		try {
-			PortletPreferences preferences = PrefsPropsUtil.getPreferences();
-			request.setAttribute(ConfigurationConstants.PARAMUTIL_SEARCH_URL,
-					preferences.getValue(ConfigurationConstants.PREFENCES_SEARCH_URL, ConfigurationConstants._EMPTY));
-			request.setAttribute("crafter_end_point",
-					preferences.getValue(ConfigurationConstants.CRAFTER_END_POINT, ConfigurationConstants._EMPTY));
-		} catch (SystemException e) {
-			LOG.error("Error while rendering:"+e.getMessage());
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.liferay.util.bridges.mvc.MVCPortlet#doView(javax.portlet.RenderRequest
+     * , javax.portlet.RenderResponse)
+     */
+    public void doView(final RenderRequest request, final RenderResponse response) throws IOException, PortletException {
 
-		include(viewTemplate, request, response);
-	}
+        try {
+            PortletPreferences preferences = PrefsPropsUtil.getPreferences();
+            request.setAttribute(ConfigurationConstants.PARAMUTIL_SEARCH_URL,
+                    preferences.getValue(ConfigurationConstants.PREFERENCES_SEARCH_URL, ConfigurationConstants._EMPTY));
+            request.setAttribute(ConfigurationConstants.PARAMUTIL_END_POINT,
+                    preferences.getValue(ConfigurationConstants.PREFERENCES_END_POINT, ConfigurationConstants._EMPTY));
+        } catch (SystemException e) {
+            LOG.error("Error while rendering:" + e.getMessage());
+        }
+
+        include(viewTemplate, request, response);
+    }
 }

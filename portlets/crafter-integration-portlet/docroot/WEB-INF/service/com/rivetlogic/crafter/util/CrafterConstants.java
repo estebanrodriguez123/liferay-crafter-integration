@@ -20,24 +20,27 @@ package com.rivetlogic.crafter.util;
 /**
  * The Class CrafterConstants.
  */
-public class CrafterConstants {
-	
-	//String constants used for Crafter service
-	/** The Constant CRAFTER_SERVER_PROPERTY. */
-	public static final String CRAFTER_SERVER_PROPERTY = "search.server.url";
-	
-	/** The Constant CRAFTER_START. */
-	public static final String CRAFTER_START = "start";
-	
-	/** The Constant CRAFTER_RESPONSE. */
-	public static final String CRAFTER_RESPONSE = "response";
-	
-	/** The Constant CRAFTER_DOCUMENTS. */
-	public static final String CRAFTER_DOCUMENTS = "documents";
-	
-	/** The Constant CRAFTER_Q. */
-	public static final String CRAFTER_Q = "q";
-	
-	/** The Constant CRAFTER_0_STRING. */
-	public static final String CRAFTER_0_STRING = "0";
+public final class CrafterConstants {
+
+    private CrafterConstants(){
+        
+    }
+    // String constants used for Crafter service
+    /** The Constant CRAFTER_SERVER_PROPERTY. */
+    public static final String CRAFTER_SERVER_PROPERTY = "search.server.url";
+
+    /** The Constant CRAFTER_START. */
+    public static final String CRAFTER_START = "start";
+
+    /** The Constant CRAFTER_RESPONSE. */
+    public static final String CRAFTER_RESPONSE = "response";
+
+    /** The Constant CRAFTER_DOCUMENTS. */
+    public static final String CRAFTER_DOCUMENTS = "documents";
+
+    /** The Constant CRAFTER_Q. */
+    public static final String CRAFTER_Q = "q";
+
+    /** The Constant CRAFTER_0_STRING. */
+    public static final String CRAFTER_0_STRING = "0";
 }

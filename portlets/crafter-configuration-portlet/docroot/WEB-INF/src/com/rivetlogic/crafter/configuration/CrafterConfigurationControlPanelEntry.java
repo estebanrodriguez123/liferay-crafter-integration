@@ -23,12 +23,10 @@ import com.liferay.portlet.BaseControlPanelEntry;
 /**
  * @author sjamali
  */
-public class CrafterConfigurationControlPanelEntry extends
-		BaseControlPanelEntry {
+public class CrafterConfigurationControlPanelEntry extends BaseControlPanelEntry {
 
-	public boolean isVisible(PermissionChecker permissionChecker,
-			Portlet portlet) throws Exception {
+    public boolean isVisible(final PermissionChecker permissionChecker,final Portlet portlet) throws Exception {
 
-		return false;
-	}
+        return false;
+    }
 }
