@@ -9,3 +9,4 @@ build/
 /liferay-portal
 *.iml
 ivy.xml.MD5
+/bin

@@ -23,40 +23,37 @@
 <%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 <%@ taglib uri="http://liferay.com/tld/aui" prefix="aui"%>
 <%@ page import="com.liferay.portal.kernel.util.*" %>
+<%@ page import="com.rivetlogic.crafter.util.ConfigurationConstants" %>
 <portlet:defineObjects />
 <liferay-theme:defineObjects />
 
 <%
-	String searchServerURL = (String)request.getAttribute("search_server_url");
-	String crafterEndPoint = (String)request.getAttribute("crafter_end_point");
+	String searchServerURL = (String)request.getAttribute(ConfigurationConstants.PARAMUTIL_SEARCH_URL);
+	String crafterEndPoint = (String)request.getAttribute(ConfigurationConstants.PARAMUTIL_END_POINT);
 %>
 
 <portlet:actionURL name="submitPreferencesAction" var="submitPreferencesURL" /> 
 
 <div> 
 	<aui:form name="save_preferences" action="<%=submitPreferencesURL%>" method="post">
-		
 			<aui:column>
-				<aui:fieldset label="Search Server Configuration">
-					<aui:field-wrapper label="Crafter Search URL">
-						<liferay-ui:error key="error-invalid-url" message="Invalid URL" />
-						<aui:input type="text" name="search_server_url" label="" size="40" value="<%=searchServerURL%>"/>
+				<aui:fieldset label="configuration-header">
+					<aui:field-wrapper label="crafter-search-url">
+						<aui:input type="text" name="search_server_url" label="" size="40" value="<%=searchServerURL%>">
+							<aui:validator name="url" errorMessage="error-invalid-url"/>
+						</aui:input>
 					</aui:field-wrapper>
-					<aui:field-wrapper label="Crafter End Point">
-						<liferay-ui:error key="error-invalid-end-point" message="Invalid End Point" />
-						<aui:input type="text" name="crafter_end_point" label="" size="40" value="<%=crafterEndPoint%>"/>
+					<aui:field-wrapper label="crafter-end-point">
+						<aui:input type="text" name="crafter_end_point" label="" size="40" value="<%=crafterEndPoint%>">
+							<aui:validator name="url" errorMessage="error-invalid-end-point"/>
+						</aui:input>	
 					</aui:field-wrapper>
 				</aui:fieldset>
-			</aui:column>
-		
-		
-			<aui:column>
 				<aui:fieldset label="&nbsp;">
 					<aui:field-wrapper>
 						<aui:button type="submit" name="update" value="Update" />
 					</aui:field-wrapper>
 				</aui:fieldset>
 			</aui:column>
-
 	</aui:form>
 </div>

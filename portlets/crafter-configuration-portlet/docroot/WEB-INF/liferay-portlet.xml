@@ -7,7 +7,7 @@
 		<icon>/icon.png</icon>
 		<control-panel-entry-category>configuration</control-panel-entry-category>
 		<control-panel-entry-weight>111.0</control-panel-entry-weight>
-		<control-panel-entry-class>com.crafter.configuration.CrafterConfigurationControlPanelEntry</control-panel-entry-class>
+		<control-panel-entry-class>com.rivetlogic.crafter.configuration.CrafterConfigurationControlPanelEntry</control-panel-entry-class>
 		<instanceable>false</instanceable>
 		<header-portlet-css>/css/main.css</header-portlet-css>
 		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>

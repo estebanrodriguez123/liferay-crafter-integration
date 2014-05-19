@@ -4,7 +4,7 @@
 	<portlet>
 		<portlet-name>crafter-configuration</portlet-name>
 		<display-name>Crafter Configuration Portlet</display-name>
-		<portlet-class>com.crafter.configuration.CrafterConfigurationPortlet</portlet-class>
+		<portlet-class>com.rivetlogic.crafter.configuration.CrafterConfigurationPortlet</portlet-class>
 		<init-param>
 			<name>view-template</name>
 			<value>/view.jsp</value>
@@ -13,6 +13,7 @@
 		<supports>
 			<mime-type>text/html</mime-type>
 		</supports>
+		<resource-bundle>content/Language</resource-bundle>
 		<portlet-info>
 			<title>Crafter Configuration Portlet</title>
 			<short-title>Crafter Configuration Portlet</short-title>

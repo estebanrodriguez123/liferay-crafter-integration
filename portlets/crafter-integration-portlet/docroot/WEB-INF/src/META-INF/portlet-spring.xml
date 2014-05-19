@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-	<bean id="com.rivet.crafter.service.CrafterLocalService" class="com.rivet.crafter.service.impl.CrafterLocalServiceImpl" />
-	<bean id="com.rivet.crafter.service.CrafterService" class="com.rivet.crafter.service.impl.CrafterServiceImpl" />
+	<bean id="com.rivetlogic.crafter.service.CrafterLocalService" class="com.rivetlogic.crafter.service.impl.CrafterLocalServiceImpl" />
+	<bean id="com.rivetlogic.crafter.service.CrafterService" class="com.rivetlogic.crafter.service.impl.CrafterServiceImpl" />
 </beans>

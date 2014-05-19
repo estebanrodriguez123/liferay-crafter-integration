@@ -15,7 +15,7 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *#
 
-#set ($crafterService = $utilLocator.findUtil('crafter-integration-portlet','com.rivet.crafter.service.CrafterLocalService'))	
+#set ($crafterService = $utilLocator.findUtil('crafter-integration-portlet','com.rivetlogic.crafter.service.CrafterLocalService'))	
 #set ($query_parameters = {"q": "$keyword.getData()"})
 #set ($documentsMap = $crafterService.searchByMap($query_parameters))
 
@@ -26,21 +26,33 @@
 
 <ul class="metadata param">
     #foreach( $item in $documentsMap )
-    <li class="">
-        <ul>
-            <li class="info">
-                <strong>CCrafter Site:</strong> <span>$item.get("crafterSite")</span>
-            </li>
-            <li class="info">
-                <strong>Content Type:</strong> <span>$item.get("content-type")</span>
-            </li>
-            <li class="info">
-                <strong>File Name:</strong> <span>$item.get("file-name")</span>
-            </li>
-            <li class="info">
-                <strong>Created Date:</strong> <span>$item.get("createdDate")</span>
-            </li>
-        </ul>
-    </li>
+		#set ($createdDate = $item.get("createdDate"))
+		#set ($fileName = $item.get("file-name"))
+	    <li class="">
+	        <ul>
+	            <li class="info">
+	                <strong>CCrafter Site:</strong> <span>$item.get("crafterSite")</span>
+	            </li>
+	            <li class="info">
+	                <strong>Content Type:</strong> <span>$item.get("content-type")</span>
+	            </li>
+	            <li class="info">
+	                <strong>File Name:</strong> 
+	                <span>
+		                #if ($validator.isNotNull($fileName))
+	                		$fileName
+	                	#end	
+                	</span>
+	            </li>
+	            <li class="info">
+	                <strong>Created Date:</strong> 
+	                <span>
+		                #if ($validator.isNotNull($createdDate))
+	                		$createdDate
+	                	#end	
+	            	</span>
+	            </li>
+	        </ul>
+	    </li>
     #end
 </ul>
