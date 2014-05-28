@@ -1,0 +1,73 @@
+#*
+ Copyright (C) 2012-2013 Rivet Logic Corporation.
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GPLv3 General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GPLv3 General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*#
+#set ($crafterService = $utilLocator.findUtil('crafter-integration-portlet','com.rivet.crafter.service.CrafterLocalService'))
+#set ($qValue = "crafterSite:$crafter-site.getData() AND localId:$local-id.getData()")
+#set ($query_parameters = {"q": $qValue})
+#set ($documentsMap = $crafterService.searchByMap($query_parameters))
+#if ($documentsMap.size() > 0)
+	## change this if server has different url
+	#set ($crafterurl  = "http://127.0.0.1:8080")
+	#set ($content = $documentsMap.get(0))
+	#set ($css-path = '/velocity-templates-theme/css/')
+	<link href="${css-path}crafter-styles.css" rel="stylesheet" />
+    <div class="gintegrity">
+        <div class="interior-page">
+            <header>
+                <div class="bottom">
+                    <div class="pad">
+                        <h1 class="off-text logo" href="/">Global Integrity</h1>
+                        
+                        <div class="museo300 header-slogan">
+                            <div id="title" class="cstudio-ice">
+                                <div></div>
+                            </div>
+                            <div class="title-small mb5">ARTICLES</div>
+                            <span class="title-larger lh1-2 weight-normal">
+                            $content.get("title")
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="content arial">
+                <div class="row-fluid mt20 mb20">
+
+                    $content.get("body")
+
+                    <div class="span4">
+                        <div class="museo300 article-img-wrapper pull-right mt20">
+                            <a href="javascript:void(null)" class="block">
+                            <img src="${crafterurl}${content.get("authorImage")}"/>
+                            </a>
+                            <div class="desc">$content.get("author")</div>
+                            <div class="desc">$content.get("publishDate_dt")</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+    </div>
+
+	
+	
+
+#else
+	<h2>Requested article was not found</h2>
+#end
