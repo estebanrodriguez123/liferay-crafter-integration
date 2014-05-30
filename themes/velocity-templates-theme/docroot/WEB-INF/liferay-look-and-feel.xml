@@ -3,8 +3,8 @@
 
 <look-and-feel>
 	<compatibility>
-		<version>6.2.0+</version>
-		<version>6.2.10+</version>
+		<version>6.2.1+</version>
+		<version>6.2.20+</version>
 	</compatibility>
 	<theme id="velocity-templates" name="Velocity Templates" />
 </look-and-feel>
