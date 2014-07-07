@@ -14,14 +14,14 @@
  You should have received a copy of the GPLv3 General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *#
-#set ($crafterService = $utilLocator.findUtil('crafter-integration-portlet','com.rivet.crafter.service.CrafterLocalService'))
+#set ($crafterService = $utilLocator.findUtil('crafter-integration-portlet','com.rivetlogic.crafter.service.CrafterLocalService'))
 #set ($qValue = "crafterSite:$crafter-site.getData() AND localId:$local-id.getData()")
 #set ($query_parameters = {"q": $qValue})
 #set ($documentsMap = $crafterService.searchByMap($query_parameters))
 #if ($documentsMap.size() > 0)
 	## change this if server has different url
 	#set ($crafterurl  = "http://127.0.0.1:8080")
-	#set ($content = $documentsMap.get(0))
+	#set ($content = $documentsMap.get(1))
 	#set ($css-path = '/velocity-templates-theme/css/')
 	<link href="${css-path}crafter-styles.css" rel="stylesheet" />
     <div class="gintegrity">
